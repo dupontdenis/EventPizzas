@@ -6,6 +6,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        div {
+            display: none;
+        }
+    </style>
+    <script>
+
+        function showPizza(pizza) {
+            // Hide all pizza
+            document.querySelectorAll('div').forEach(div => {
+                div.style.display = 'none';
+            });
+
+            // Show requested pizza
+            document.querySelector(`#${pizza}`).style.display = 'block';
+        }
+
+
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelectorAll('button').forEach(button => {
+                button.onclick = function () {
+                    showPizza(this.dataset.pizza);
+                };
+            });
+        });
+    </script>
 </head>
 
 <body>
