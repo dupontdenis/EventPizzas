@@ -1,54 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        div {
-            display: none;
-        }
-    </style>
-    <script>
-
-        function showPizza(pizza) {
-            // Hide all pizza
-            document.querySelectorAll('div').forEach(div => {
-                div.style.display = 'none';
-            });
-
-            // Show requested pizza
-            document.querySelector(`#${pizza}`).style.display = 'block';
-        }
-
-
-        document.addEventListener('DOMContentLoaded', function () {
-            document.querySelectorAll('button').forEach(button => {
-                button.onclick = function () {
-                    showPizza(this.dataset.pizza);
-                };
-            });
-        });
-    </script>
+    <title>Event Pizzas</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
-
 <body>
-    <button data-pizza="queen">Queen</button>
-    <button data-pizza="margherita">Margherita</button>
-    <div id="queen">
-        <h1>Quenn</h1>
-        <p>Sauce tomate à l'origan, mozzarella, jambon et champignons frais</p>
-        <p>Mettre la pâte à pizza sur une plaque ou dans un moule à pizza. Préchauffer votre four à 200° (chaleur
-            tournante, 3ème grille). Étaler sur la pâte la sauce tomate puis disposer le jambon, les champignons et la
-            mozzarella. Parsemer d'origan. Cuire pendant environ 20 minutes.</p>
+    <!-- Your content goes here -->
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <button type="button" class="btn btn-primary" onclick="location.href='delegation.html'">Go to Delegation</button>
+                <button type="button" class="btn btn-primary" onclick="location.href='this.html'">Go to test</button>
+                <button type="button" class="btn btn-primary" onclick="location.href='thisArrow.html'">Go to Bug with This</button>
+                <button type="button" class="btn btn-primary" onclick="location.href='delegationBug.html'">Go to Delegation Bug</button>
+                <button type="button" class="btn btn-primary" onclick="location.href='delegationFixed.html'">Go to Delegation Fixed</button>
+            </div>
+        </div>
     </div>
-    <div id="margherita">
-        <h1>Margherita</h1>
-        <p>La tradition veut que le plat italien par excellence ait été popularisé par la reine Marguerite de Savoie, à
-            la suite d’une visite officielle à Naples en 1889.</p>
-    </div>
+        
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
-
 </html>

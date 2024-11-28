@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            display: none;
+        }
+    </style>
+    <script>
+
+        function showPizza(pizza) {
+            // Hide all pizza
+            document.querySelectorAll('div').forEach(div => {
+                div.style.display = 'none';
+            });
+
+            // Show requested pizza
+            document.querySelector(`#${pizza}`).style.display = 'block';
+        }
+
+
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelectorAll('button').forEach(button => {
+                 // Using a classic function to ensure 'this' refers to the button element
+                 button.onclick = function () {
+                    showPizza(this.dataset.pizza);
+                };
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <button data-pizza="queen">Queen</button>
+    <button data-pizza="margherita">Margherita</button>
+    <div id="queen">
+        <h1>Quenn</h1>
+        <p>Sauce tomate à l'origan, mozzarella, jambon et champignons frais</p>
+        <p>Mettre la pâte à pizza sur une plaque ou dans un moule à pizza. Préchauffer votre four à 200° (chaleur
+            tournante, 3ème grille). Étaler sur la pâte la sauce tomate puis disposer le jambon, les champignons et la
+            mozzarella. Parsemer d'origan. Cuire pendant environ 20 minutes.</p>
+    </div>
+    <div id="margherita">
+        <h1>Margherita</h1>
+        <p>La tradition veut que le plat italien par excellence ait été popularisé par la reine Marguerite de Savoie, à
+            la suite d’une visite officielle à Naples en 1889.</p>
+    </div>
+</body>
+
+</html>
