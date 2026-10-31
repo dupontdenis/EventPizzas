@@ -1,8 +1,8 @@
 # EventPizzas
 
-## Parcours d'etude : delegation d'evenements et `this`
+## Parcours d'etude : delegation d'evenements
 
-Les exemples ci-dessous suivent une progression : partir d'un gestionnaire de clic delegue, comprendre un bug lie a la cible du clic, le corriger avec `closest`, puis 🥷🏼 etudier le comportement de `this` dans les fonctions classiques et flechees.
+Les exemples ci-dessous suivent une progression : partir d'un gestionnaire de clic delegue, comprendre un bug lie a la cible du clic, puis le corriger avec `closest`.
 
 ### 1. 👩🏼‍🎓Comprendre la delegation
 
@@ -18,14 +18,10 @@ Ouvrir [delegationBug.html](delegationBug.html), puis cliquer directement sur le
 
 Ouvrir [delegationFixed.html](delegationFixed.html). L'appel `event.target.closest('button')` remonte depuis l'element clique jusqu'au bouton correspondant. Le test `if (button)` protege aussi les clics qui ne proviennent pas d'un bouton.
 
-### 4. 🥷🏼Comprendre `this` dans un gestionnaire classique
+### 4. 👑Etude avancee : creer un helper de delegation
 
-Comparer [this.html](this.html) et [thisAddEvent.html](thisAddEvent.html). Dans ces deux exemples, une fonction classique sert de gestionnaire et `this` designe le bouton qui a recu le clic. Le second exemple utilise explicitement `addEventListener`.
+Terminer ce parcours par [delegat.html](delegat.html). Le helper `$delegate` combine la delegation, `closest` et `handler.call(...)` pour invoquer le gestionnaire avec le bouton correspondant comme contexte d'execution. Comparer `event.target` (element precisement clique) avec l'element bouton retenu par le helper pour comprendre le resultat.
 
-### 5. Voir pourquoi la fonction flechee pose probleme ici
+## Pour aller plus loin : `this`
 
-Ouvrir [thisArrow.html](thisArrow.html). Une fonction flechee ne definit pas son propre `this` : elle capture celui du contexte exterieur. Ici, `this` n'est donc pas le bouton et `this.dataset.pizza` ne fonctionne pas comme attendu. Pour recuperer le bouton dans un gestionnaire fleche, utiliser plutot l'objet evenement, par exemple `event.currentTarget`.
-
-### 6. 👑Etude avancee : creer un helper de delegation
-
-Terminer par [delegat.html](delegat.html). Le helper `$delegate` combine la delegation, `closest` et `handler.call(...)` pour invoquer le gestionnaire avec l'element correspondant comme valeur de `this`. Comparer `event.target` (element precisement clique) avec `this` (bouton retenu par le helper) pour bien distinguer les deux roles.
+Les exemples consacres a `this` sont mis a part dans le dossier [this/](this/), pour ne pas interrompre le cours de base sur la delegation. Comparer [this/this.html](this/this.html) et [this/thisAddEvent.html](this/thisAddEvent.html) : dans un gestionnaire classique, `this` designe le bouton qui a recu le clic. Dans [this/thisArrow.html](this/thisArrow.html), la fonction flechee capture le `this` du contexte exterieur ; pour acceder au bouton, on peut utiliser `event.currentTarget`.
