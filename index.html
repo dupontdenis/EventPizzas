@@ -1,38 +1,68 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Event Pizzas</title>
-    <!-- Bootstrap CSS -->
+    <title>EventPizzas - Délégation d'événements</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
-    <!-- Your content goes here -->
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <button type="button" class="btn btn-primary" onclick="location.href='delegation.html'">Go to
-                    Delegation</button>
-                <button type="button" class="btn btn-success" onclick="location.href='delegation/index.html'">Go to
-                    Bootstrap Delegation</button>
-                <button type="button" class="btn btn-primary" onclick="location.href='this/this.html'">Go to test</button>
-                <button type="button" class="btn btn-primary" onclick="location.href='this/thisArrow.html'">Go to Bug with
-                    This</button>
-                <button type="button" class="btn btn-primary" onclick="location.href='delegationBug.html'">Go to
-                    Delegation Bug</button>
-                <button type="button" class="btn btn-primary" onclick="location.href='delegationFixed.html'">Go to
-                    Delegation Fixed</button>
-                <button type="button" class="btn btn-primary" onclick="location.href='delegat.html'">🧙‍♂️ create
-                    helpers</button>
-            </div>
-        </div>
-    </div>
+    <main class="container py-5">
+        <h1 class="mb-2">La délégation d'événements</h1>
+        <p class="lead mb-4">Un parcours pratique avec des exemples de pizzas.</p>
 
-    <!-- Bootstrap 5 bundle includes Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+        <section class="mb-5" aria-labelledby="parcours-title">
+            <h2 id="parcours-title" class="h4">Parcours de découverte</h2>
+
+            <div class="mb-3">
+                <a class="btn btn-primary" href="delegation.html">1. Délégation simple</a>
+                <p class="mb-0 mt-1">Un seul gestionnaire sur le parent affiche la pizza choisie.</p>
+            </div>
+
+            <div class="mb-3">
+                <a class="btn btn-primary" href="delegationBug.html">2. Observer le bug</a>
+                <p class="mb-0 mt-1">Le clic sur le texte imbriqué ne retrouve pas les données du bouton.</p>
+            </div>
+
+            <div class="mb-3">
+                <a class="btn btn-primary" href="delegationFixed.html">3. Corriger avec closest()</a>
+                <p class="mb-0 mt-1">Remonter jusqu'au bouton, même si le clic touche son contenu.</p>
+            </div>
+
+            <div class="mb-3">
+                <a class="btn btn-success" href="delegation/index.html">4. Version Bootstrap et module</a>
+                <p class="mb-0 mt-1">La même idée, avec la logique JavaScript dans un fichier séparé.</p>
+            </div>
+
+            <div class="mb-3">
+                <a class="btn btn-primary" href="delegat.html">5. Helper de délégation</a>
+                <p class="mb-0 mt-1">Un helper réutilisable associe le bouton trouvé au contexte this.</p>
+            </div>
+        </section>
+
+        <section aria-labelledby="avance-title">
+            <h2 id="avance-title" class="h4">Pour aller plus loin : this (niveau avancé)</h2>
+            <p>Ces trois exemples sont séparés du parcours principal : ils explorent le contexte d'exécution des
+                gestionnaires.</p>
+
+            <div class="mb-3">
+                <a class="btn btn-outline-dark" href="this/this.html">this avec onclick</a>
+                <p class="mb-0 mt-1">Une fonction classique reçoit le bouton comme this.</p>
+            </div>
+
+            <div class="mb-3">
+                <a class="btn btn-outline-dark" href="this/thisAddEvent.html">this avec addEventListener()</a>
+                <p class="mb-0 mt-1">Même comportement avec un gestionnaire enregistré par addEventListener.</p>
+            </div>
+
+            <div class="mb-3">
+                <a class="btn btn-outline-dark" href="this/thisArrow.html">this avec une fonction fléchée</a>
+                <p class="mb-0 mt-1">Voir pourquoi une fonction fléchée ne définit pas son propre this.</p>
+            </div>
+        </section>
+    </main>
 </body>
 
 </html>
