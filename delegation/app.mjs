@@ -9,6 +9,16 @@ function showPizza(pizzaId) {
   document.getElementById(pizzaId).hidden = false;
 }
 
+function addClass(currentButton) {
+  container.querySelectorAll("button").forEach((button) => {
+    button.classList.remove("btn-primary");
+    button.classList.add("btn-outline-primary");
+    
+  });
+  currentButton.classList.remove("btn-outline-primary");
+  currentButton.classList.add("btn-primary");
+}
+
 container.addEventListener("click", (event) => {
   const button = event.target.closest("button");
 
@@ -16,5 +26,6 @@ container.addEventListener("click", (event) => {
     return;
   }
 
+  addClass(button);
   showPizza(button.dataset.pizza);
 });
