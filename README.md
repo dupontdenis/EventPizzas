@@ -8,6 +8,8 @@ Les exemples ci-dessous suivent une progression : partir d'un gestionnaire de cl
 
 Ouvrir [delegation.html](delegation.html). Un seul gestionnaire `click` est attache au conteneur des boutons. L'evenement remonte depuis le bouton jusqu'au conteneur (propagation), qui utilise ensuite `event.target` pour identifier la pizza selectionnee. Les blocs de details portent l'attribut HTML `hidden` au depart ; JavaScript le passe a `false` pour afficher la pizza choisie et a `true` pour masquer les autres. Le CSS reste reserve a la presentation.
 
+Une variante avec Bootstrap 5.3.8 est disponible dans [delegation/index.html](delegation/index.html). Elle charge la feuille de style depuis un CDN pour la mise en page et les boutons ; aucun script Bootstrap n'est necessaire dans cette page. La logique de delegation reste dans [delegation/app.mjs](delegation/app.mjs). Comme la page utilise un module JavaScript, ouvrez-la depuis un serveur local (par exemple l'extension Live Server de VS Code), et non directement depuis `file://`. La page d'accueil [index.html](index.html) charge aussi Bootstrap 5.3.8, avec son bundle JavaScript.
+
 ### 2. 💥Observer le bug avec un element imbrique
 
 Ouvrir [delegationBug.html](delegationBug.html), puis cliquer directement sur le texte colore a l'interieur d'un bouton. Dans ce cas, `event.target` est le `span`, et non le bouton : ses donnees `data-pizza` sont donc absentes et la selection echoue.
