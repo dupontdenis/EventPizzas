@@ -6,7 +6,7 @@ Les exemples ci-dessous suivent une progression : partir d'un gestionnaire de cl
 
 ### 1. 👩🏼‍🎓Comprendre la delegation
 
-Ouvrir [delegation.html](delegation.html). Un seul gestionnaire `click` est attache au conteneur des boutons. L'evenement remonte depuis le bouton jusqu'au conteneur (propagation), qui utilise ensuite `event.target` pour identifier la pizza selectionnee.
+Ouvrir [delegation.html](delegation.html). Un seul gestionnaire `click` est attache au conteneur des boutons. L'evenement remonte depuis le bouton jusqu'au conteneur (propagation), qui utilise ensuite `event.target` pour identifier la pizza selectionnee. Les blocs de details portent l'attribut HTML `hidden` au depart ; JavaScript le passe a `false` pour afficher la pizza choisie et a `true` pour masquer les autres. Le CSS reste reserve a la presentation.
 
 ### 2. 💥Observer le bug avec un element imbrique
 
